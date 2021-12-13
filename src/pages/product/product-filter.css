@@ -1,0 +1,131 @@
+/* 表单字段类型-下拉框容器除开最后一个以外都距离外边距 24像素 */
+.filters__additional>.mat-form-field-type-mat-select:not(:last-child) {
+    margin-right: 24px;
+}
+
+/* 表单字段 */
+.mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+}
+
+/* 下拉框的字段容器 */
+.mat-form-field.mat-form-field-type-mat-select .mat-form-field-infix {
+    border-top: none;
+    /* 小内边距 */
+    padding: .2679167rem 0;
+}
+
+/* 小外边距都设置 */
+.mat-form-field-type-mat-select .mat-form-field-wrapper {
+    margin: .25rem 0;
+}
+
+/* 下拉框容器的表单字段弹性盒子容器单独设置 */
+.mat-form-field-type-mat-select .mat-form-field-flex {
+    /* 背景色 */
+    background-color: var(--set-color-white);
+
+    /* 边框颜色 */
+    border-color: transparent;
+    /* 盒子阴影 */
+    box-shadow: none;
+
+    /* 边框设置 */
+    border: 0;
+    /* 边框圆角角度 */
+    border-radius: .1666667rem;
+    /* 内边距 */
+    padding: 0 .5rem;
+    /* 过渡效果 */
+    transition: border .2s cubic-bezier(0, 0, .2, 1) 0ms,
+        box-shadow .2s cubic-bezier(0, 0, .2, 1) 0ms;
+
+    /* 光标：点击 */
+    cursor: pointer;
+
+    /* 距离顶部负 0.25 rem */
+    margin-top: -0.25rem;
+    /* 定位：相对定位 */
+    position: relative;
+}
+
+/* 表单下拉框的 表单字段描述标签包装器 */
+.mat-form-field.mat-form-field-type-mat-select .mat-form-field-label-wrapper {
+    /*  */
+    font-size: .5rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    line-height: .75rem;
+    text-transform: uppercase;
+
+    /* -xx- */
+    transition: all .2s cubic-bezier(0, 0, .2, 1) 0ms;
+
+    /* -xx- */
+    top: -.2916667rem;
+}
+
+/* 表单下拉框的 表单字段描述标签 */
+.mat-form-field.mat-form-field-type-mat-select .mat-form-field-label {
+    transition: none;
+    /* -xx- */
+    width: calc(100% - 18px);
+    /* -xx- */
+    display: block;
+    /* -xx- */
+    font-size: .5833334rem;
+    letter-spacing: .25px;
+    line-height: .8333334rem;
+    /* -xx- */
+    transform: scale(.75) perspective(100px) translateZ(.001px);
+    /* -xx- */
+    color: var(--set-color-gray-50);
+}
+
+/* 下拉框被激活时轮廓盒子阴影设置 */
+.mat-form-field-type-mat-select.mat-focused .mat-form-field-outline {
+    box-shadow: 0 1px 2px var(--set-color-blue-30),
+        0 2px 4px var(--set-color-blue-20);
+    transition: box-shadow .2s cubic-bezier(.4, 0, .2, 1) 0ms;
+}
+
+/* 下拉框被激活时箭头颜色设置 */
+.mat-form-field-type-mat-select.mat-focused .mat-select-arrow-wrapper {
+    color: var(--set-color-blue-60);
+    transition: color .2s cubic-bezier(.4, 0, .2, 1) 0ms;
+}
+
+/* 下拉框被激活时粗轮廓显现 */
+.mat-form-field-type-mat-select.mat-focused .mat-form-field-outline.mat-form-field-outline-thick {
+    opacity: 1;
+}
+
+/* 拥有标签在焦点下 */
+.mat-form-field-has-label.mat-focused .mat-form-field-flex .mat-form-field-outline .mat-form-field-outline-start,
+.mat-form-field-has-label.mat-focused .mat-form-field-flex .mat-form-field-outline .mat-form-field-outline-end {
+    border-color: var(--set-color-blue-60);
+}
+
+/* 拥有标签在焦点下 */
+.mat-form-field-has-label.mat-focused .mat-form-field-flex .mat-form-field-outline .mat-form-field-outline-gap {
+    border-color: var(--set-color-blue-60);
+    border-top-color: var(--set-color-white);
+}
+
+/* 表单字段.字段类型是下拉框.获得焦点的 字段描述标签 */
+.mat-form-field.mat-form-field-type-mat-select.mat-focused .mat-form-field-label {
+    color: var(--set-color-blue-60);
+}
+
+/* 
+    .表单字段.字段类型是下拉框:非(焦点的):非(字段带有字段描述标签的类).字段应该浮现的 .表单字段轮廓开始,
+    .表单字段.字段类型是下拉框:非(焦点的):非(字段带有字段描述标签的类).字段应该浮现的 .表单字段轮廓间隙,
+    .表单字段.字段类型是下拉框:非(焦点的):非(字段带有字段描述标签的类).字段应该浮现的 .表单字段轮廓结束
+   */
+.mat-form-field.mat-form-field-type-mat-select:not(.mat-focused):not(.mat-form-field-has-label).mat-form-field-should-float .mat-form-field-outline-start,
+.mat-form-field.mat-form-field-type-mat-select:not(.mat-focused):not(.mat-form-field-has-label).mat-form-field-should-float .mat-form-field-outline-gap,
+.mat-form-field.mat-form-field-type-mat-select:not(.mat-focused):not(.mat-form-field-has-label).mat-form-field-should-float .mat-form-field-outline-end {
+    border-color: var(--set-color-gray-60);
+}

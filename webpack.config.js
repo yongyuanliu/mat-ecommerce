@@ -32,10 +32,20 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                use: "babel-loader",
+                test: /\.m?(js|tsx|ts)$/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ["@babel/preset-env"],
+                        plugins: ["@babel/plugin-transform-runtime"]
+                    }
+                },
                 exclude: /node_modules/,
             },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: ["style-loader", "css-loader"]
+            }
         ],
     },
     plugins: [
@@ -70,7 +80,7 @@ function devConfig() {
 function devServerConfig() {
     config.devServer = {
         port: 9000,
-        open: true,
+        open: false,
         hot: true,
         compress: true
     };

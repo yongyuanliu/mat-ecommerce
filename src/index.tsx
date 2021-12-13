@@ -7,4 +7,5 @@ ReactDOM.render(
     <BrowserRouter>
         <App />
     </BrowserRouter>,
-document.querySelector("#react_root"));
+    document.querySelector("#react_root")
+);

@@ -1,0 +1,933 @@
+@charset "utf-8";
+
+/* 页面包装纸,只包含一个元素: 页面容器 */
+.page-wrapper{
+  height: unset;
+}
+/* 页面容器,是页面其他元素的容器 */
+.main-container{
+  /* 高度 未设置的，防止被重写 */
+  height: unset !important;
+}
+/* 页面容器,其他属性设置 */
+.main-container{
+  /* 背景色 */
+  background: var(--set-color-white);
+  /* flex 设置 */
+  display: -webkit-box;
+  display: flex;
+  /* flex 方向 纵向 */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  /* 高度 100vh 页面所有高度, 不会生效*/
+  height: 100vh;
+}
+
+/*
+  **通用的容器设置，它们通常是这样使用的**
+  权重 20 
+  .mat-drawer-container 包含商品导航栏容器，商品内容容器
+  .mat-sidenav-content 商品内容容器
+  .content-container 内容的容器，包含商品列表，折扣信息
+*/
+.main-container .mat-drawer-container,
+.main-container .mat-sidenav-content,
+.main-container .content-container {
+  /* flex 块 */
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+  /* 行盒最小高度 1px */
+  min-height: 1px;
+}
+
+/* ---------------------- */
+/* mat(垫子)    公用组件名 */
+/* drawer(抽屉) 公用组件名 */
+/* ---------------------- */
+
+/* 
+  页面主要内容的容器
+  包含商品导航栏容器，商品内容容器
+*/
+.mat-drawer-container{
+  position: relative;
+  /* z轴设置 */
+  z-index: 1;
+  /* 边距盒子 */
+  box-sizing: border-box;
+  /* 权重 10 会被覆盖 */
+  display: block;
+  /* 溢出隐藏 */
+  overflow: hidden;
+  /* 背景色 */
+  background-color: var(--set-color-white);
+  /* 默认字体颜色 */
+  color: var(--set-color-inverse);
+}
+
+/* 侧边栏 */
+.mat-sidenav{
+  /* 固定定位 */
+  position: fixed;
+  /* 距离顶部 64 像素 */
+  margin-top: 64px;
+  /* 距离顶部，底部 0 像素 */
+  top: 0;
+  bottom: 0;
+  /* z轴设置为 3 确保不会被覆盖 */
+  z-index: 3;
+  /* 盒子容器 */
+  display: flex;
+  /* 内边距 */
+  padding: 12px 1px 32px 12px;
+  /* 宽度 */
+  width: 320px;  
+  outline: 0;
+  /* 边框盒子 */
+  box-sizing: border-box;
+  /* 无阴影设置 */
+  box-shadow: none;
+  /* 确保侧边栏能显示出来 */
+  overflow-y: visible;
+  /* --- */
+  background-color: var(--set-color-white);
+  transition: transform .2s linear;
+}
+/* 侧边栏对应的内容区域 */
+.mat-sidenav-content{
+  /* 侧边栏的宽度是 320像素，这里外边距拉开左侧 320 像素 */
+  margin-left: 320px;
+  /* 背景色设置 */
+  background-color: var(--set-color-white);
+  /* 内边距 */
+  padding: 12px;
+  /* 相对定位 */
+  position: relative;
+  z-index: 1;
+  /* 高度拉满 */
+  height: 100%;
+  /* 自适应溢出 */
+  overflow: auto;
+}
+/* 侧边栏内容的容器 */
+.mat-sidenav-content .content-container{
+  /* 顶部外边距 48 像素 */
+  margin-top: 48px;
+  /* 高度占满 */
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  /* 底部外边距 24 像素 */
+  margin-bottom: 24px;
+  /* 宽度 100%-48px */
+  width: calc(100% - 48px);
+}
+
+.filters-toggle__wrapper{
+  position: fixed;
+  z-index: 1000;
+  bottom: 64px;
+  left: calc(50% - 56px);
+  display: flex;
+  visibility: hidden;
+}
+.filters-toggle__wrapper .mat-icon-button{
+  /* max设置 */
+  max-width: unset;
+  max-height: unset;
+  /* --- */
+  width: 2.333334rem;
+  height: 2.333334rem;
+  /* --- */
+  color: var(--set-color-blue-70);
+  /* --- */
+  background-color: var(--set-color-white);
+  box-shadow: 0 2px 4px var(--set-color-blue-30), 0 4px 8px var(--set-color-blue-20);
+  /* --- */
+  overflow: hidden;
+}
+.filters-toggle__wrapper .mat-icon-button:hover{
+  box-shadow: 0 4px 4px var(--set-color-blue-30), 0 8px 16px var(--set-color-blue-20);
+}
+.filters-toggle__wrapper > *:not(:last-child){
+  margin-right: 1rem;
+}
+
+/* 主内容容器，设置圆角，阴影等效果 */
+.main-content__container{
+  /* 圆角边框 8 像素 */
+  border-radius: 8px;
+  /* 阴影效果 */
+  box-shadow: 0 2px 4px #d2d2d2, 0 1px 2px #b4b4bb;
+  /* 弹性盒子 */
+  display: -webkit-box;
+  display: flex;
+  /* 书写方向，纵向 */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  /* 内边距 16px */
+  padding: 16px;
+}
+/* 卡片内容过滤器 */
+.filters__main{
+  /* flex 容器 */
+  display: -webkit-box;
+  display: flex;
+  /* 居中显示 */
+  -webkit-box-pack: justify;
+  /* 分割每块空间 */
+  justify-content: space-between;
+  /* 距离底部 32 像素 */
+  margin-bottom: 32px;
+  /* 弹性盒子流动方向：纵向 */
+  flex-flow:column;
+}
+/* 所有子元素 */
+.filters__main > *:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+/* 子元素统一除开最后一个元素，统一设置样式 */
+.filters__fields-wrapper > *:not(:last-child){
+  margin-right: 24px;
+}
+/* 附加的筛选条件 */
+.filters__additional{
+  color: var(--set-color-gray-100);
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0 0 16px;
+}
+
+/* 字段外边框 */
+.mat-form-field-outline{
+  /* 弹性盒子 */
+  display: flex;
+  /* 绝对定位 */
+  position: absolute;
+  /* 上右下左定位 */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* 点击事件，无 */
+  pointer-events: none;
+
+  /* 边框圆角弧度 */
+  border-radius: .1666667rem;
+}
+
+/* 字段外边框-边框开始线 */
+.mat-form-field-outline .mat-form-field-outline-start{
+  /* 7像素 */
+  width: 7px;
+  /* ----------- */
+  /* 1px 边框 */
+  border: 1px solid currentColor;
+  /* 最小宽度 */
+  min-width: 5px;
+  /* ----------- */
+  /* 边框颜色 */
+  border-color: var(--set-color-gray-30);
+  /* 上左，下左，设置圆角弧度 */
+  border-radius: .1666667rem 0 0 .1666667rem;;
+  border-right-style: none;
+}
+/* 字段外边框-边框间距 */
+.mat-form-field-outline .mat-form-field-outline-gap{
+  border-radius: .000001px;
+  border: 1px solid currentColor;
+  border-left-style: none;
+  border-right-style: none;
+  border-top-color: var(--set-color-gray-30);
+  /* -xx- */
+  border-bottom-color: var(--set-color-gray-30);
+  /* -xx- */
+  width: 57.25px;
+}
+
+/* 字段外边框-边框结束 */
+.mat-form-field-outline .mat-form-field-outline-end{
+  min-width: 5px;
+  border: 1px solid currentColor;
+
+  /* -xx- */
+
+  border-left-style: none;
+  /* 占满剩余的空间 */
+  flex-grow: 1;
+
+  /* -xx- */
+  
+  /* 设置上右，下右圆角弧度 */
+  border-radius: 0 .1666667rem .1666667rem 0;
+
+  /* -xx- */
+
+  border-color: var(--set-color-gray-30);
+}
+/* 为字段盒子悬浮时，设置了字段轮廓开始,结束设置样式 */
+.mat-form-field-flex:hover .mat-form-field-outline .mat-form-field-outline-start,
+.mat-form-field-flex:hover .mat-form-field-outline .mat-form-field-outline-end{
+  border-color: var(--set-color-blue-60);
+  -webkit-transition: border .2s cubic-bezier(.4, 0, .2, 1) 0ms;
+  transition: border .2s cubic-bezier(.4, 0, .2, 1) 0ms;
+}
+/* 为字段盒子悬浮时，设置了字段轮廓间隙设置样式 */
+.mat-form-field-flex:hover .mat-form-field-outline .mat-form-field-outline-gap{
+  border-color: var(--set-color-blue-60);
+  border-top-color: var(--set-color-blue-60);
+  -webkit-transition: border .2s cubic-bezier(.4, 0, .2, 1) 0ms;
+  transition: border .2s cubic-bezier(.4, 0, .2, 1) 0ms;
+}
+
+/* 厚外边框 */
+.mat-form-field-outline.mat-form-field-outline-thick{
+  /* 完全透明 */
+  opacity: 0;
+}
+
+/* 厚外边框，开始线，间隔，直到结束 */
+.mat-form-field-outline.mat-form-field-outline-thick .mat-form-field-outline-start,
+.mat-form-field-outline.mat-form-field-outline-thick .mat-form-field-outline-gap,
+.mat-form-field-outline.mat-form-field-outline-thick .mat-form-field-outline-end{
+  /* 边框宽度 2像素 */
+  border-width: 2px;
+}
+
+/* 表单字段拥有说明标签下的共同样式设置 */
+.mat-form-field-has-label .mat-form-field-flex .mat-form-field-outline .mat-form-field-outline-start,
+.mat-form-field-has-label .mat-form-field-flex .mat-form-field-outline .mat-form-field-outline-end{
+  border-color: var(--set-color-gray-60);
+}
+/* 表单字段下拥有说明标签的，样式轮廓间隙，顶部为白色 */
+.mat-form-field-has-label .mat-form-field-flex .mat-form-field-outline .mat-form-field-outline-gap{
+  border-color: var(--set-color-gray-60);
+  border-top-color: var(--set-color-white);
+}
+
+
+/* 下拉框 */
+.mat-select{
+  display: inline-block;
+  width: 100%;
+  outline: none;
+  position: relative;
+  top: 0;
+}
+/* 下拉框以表格布局的触发器，给用户提供文字可点击效果 */
+.mat-select-trigger{
+  display: inline-table;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+}
+/* 下拉框值 */
+.mat-select-value{
+  display: table-cell;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* 下拉框值-文本类型值 */
+.mat-select-value-text{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* -xx- */
+  font-size: .5833334rem;
+  letter-spacing: .25px;
+  line-height: .8333334rem;
+}
+/* 下拉框值-候选词颜色设置 */
+.mat-select-value-text .mat-select-placeholder{
+  color: var(--set-color-gray-50);
+}
+/* 下拉框箭头包装器 */
+.mat-select-arrow-wrapper{
+  display: table-cell;
+  vertical-align: middle;
+
+  /* -xx- */
+  color: var(--set-color-gray-50);
+
+  /* -xx- */
+  transition: none;
+
+  /* -xx- */
+  transform: translateY(0);
+}
+
+/* 下拉框箭头 */
+.mat-select-arrow{
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid;
+  margin: 0 4px;
+}
+
+
+/* cdk container */
+.cdk-overlay-container{
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: 1000;
+  display: none;
+}
+/* 覆盖背景，覆盖面板 */
+.cdk-overlay-backdrop, .cdk-overlay-panel{
+  pointer-events: auto;
+  position: absolute;
+  z-index: 1000;
+}
+/* 覆盖背景 */
+.cdk-overlay-backdrop{
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-tap-highlight-color: white;
+  -webkit-transition: opacity .4s cubic-bezier(.25, .8, .25, 1);
+  transition: opacity .4s cubic-bezier(.25, .8, .25, 1);
+}
+/* 覆盖背景显示 */
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing{
+  opacity: 1;
+}
+/* 覆盖背景是透明背景，覆盖背景是透明背景&覆盖背景显示 */
+.cdk-overlay-transparent-backdrop, .cdk-overlay-transparent-backdrop.cdk-overlay-backdrop-showing{
+  opacity: 0;
+}
+/* 覆盖连接器位置包围盒 */
+.cdk-overlay-connected-position-bouding-box{
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-flow: column;
+  min-height: 1px;
+  min-width: 1px;
+  position: absolute;
+  z-index: 1000;
+
+  /* --- */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* select面板包装器 */
+.mat-select-panel-wrap{
+  flex-basis: 100%;
+}
+/* select面板 */
+.mat-select-panel{
+  background-color: var(--set-color-white);
+  border-radius: .5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .2), 0 8px 16px rgba(0,0,0,.2);
+
+  /* --- */
+  min-width: 112px;
+  max-width: 280px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 0;
+  padding-bottom: 0;
+  max-height: 256px;
+
+  /* --- */
+  transform-origin: 50% 24px 0px;
+  font-size: 16px;
+  opacity: 1;
+  min-width: calc(100% + 32px);
+  transform: scaleY(1);
+}
+/* 选项 */
+.mat-option{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 16px;
+  text-align: left;
+  text-decoration: none;
+  max-width: 100%;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+}
+/* select面板选项 */
+.mat-select-panel .mat-option{
+  font-size: inherit;
+  line-height: 3em;
+  height: 3em;
+}
+/* 选项悬浮时:非(选中的), 选项被选中的 */
+.mat-option:hover:not(.mat-selected), .mat-option.mat-selected{
+  background: var(--set-gradient-reverse-black);
+  color: white;
+}
+.mat-option-text{
+  display: inline-block;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* 覆盖面板 */
+.cdk-overlay-panel{
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: flex;
+  max-height: 100%;
+  max-width: 100%;
+
+  /* --- */
+  min-width: 180px;
+  pointer-events: auto;
+  font-size: 16px;
+}
+
+/* 标签包装器 */
+.filters__tabs-wrapper{
+  display: flex;
+}
+
+/* 标签包装器 */
+.filters__tabs-wrapper{
+  display: flex;
+  flex-direction: row;
+}
+/* 标签包装器子元素 除开最后一个子元素，统一距离右边 24像素 */
+.filters__tabs-wrapper > *:not(:last-child){
+  margin-right: 24px;
+}
+
+/* 标签组 */
+.mat-tab-group{
+  /* 弹性盒子 */
+  display: flex;
+  /* 纵向 */
+  flex-direction: column;
+}
+
+/* 标签组头部 */
+.mat-tab-header{
+  display: flex;
+  position: relative;
+  flex-shrink: 0;
+  overflow: visible;
+}
+/* 标签组头部分页 */
+.mat-tab-header-pagination{
+  min-width: 32px;
+  /* 弹性盒子并垂直水平居中 */
+  /* display: flex; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  /* 用户选择 no */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* 相对定位 */
+  position: relative;
+  /* 确保会显示出来 */
+  z-index: 2;
+  touch-action: none;
+  /* 光标指针 */
+  cursor: pointer;
+}
+/* 分页前一页，后一页设置 */
+.mat-tab-header-pagination-before, .mat-tab-header-pagination-after{
+  /* border-radius: 50%; */
+  margin: 0 4px;
+  /* box-shadow: 0; */
+  /* transition: box-shadow .25s cubic-bezier(.4,0,.2,1) 0ms; */
+}
+/* .mat-tab-header-pagination-before:hover, .mat-tab-header-pagination-after:hover{
+  color: var(--set-color-blue-60);
+  box-shadow: 0 2px 4px var(--set-color-blue-30), 0 4px 4px var(--set-color-blue-20);
+} */
+
+/* 标签组头部分页按钮 v 字图标 */
+.mat-tab-header-pagination-chevron{
+  border-style: solid;
+  /* 上右边框 2像素 */
+  border-width: 2px 2px 0 0;
+  content: "";
+  height: 8px;
+  width: 8px;
+}
+/* 标签组头部分页按钮前面按钮 */
+.mat-tab-header-pagination-before .mat-tab-header-pagination-chevron{
+  transform: rotate(-135deg);
+}
+/* 标签组头部分页按钮后面按钮 */
+.mat-tab-header-pagination-after .mat-tab-header-pagination-chevron{
+  transform: rotate(45deg);
+}
+/* 标签说明标签容器 */
+.mat-tab-label-container{
+  display: flex;
+  flex-grow: 1;
+  z-index: 1;
+}
+/* 标签列表 */
+.mat-tab-list{
+  /* 占满盒子 */
+  flex-grow: 1;
+  position: relative;
+  transform: translateX(0px);
+  /* 过渡效果，设置为缩放比 */
+  transition: transform 500ms cubic-bezier(0.35, 0, 0.25, 1);
+}
+/* 标签-说明标签列表 */
+.mat-tab-labels{
+  /* 一行会有多个标签,所以上弹性盒子方向上横向 */
+  display: flex;
+  flex-direction: row;
+  /* 边框为0 */
+  border: 0;
+  /* 边框角度 4像素 */
+  border-radius: 4px;
+  background: var(--set-color-white); 
+  overflow: hidden;
+}
+/* 说明标签 */
+.mat-tab-label{
+  /* 默认高度 */
+  height: 48px;
+  /* 内边距左右各 24 像素 */
+  padding: 0 24px;
+  /* 光标设置为指针 */
+  cursor: pointer;
+  /* 边框盒子 */
+  box-sizing: border-box;
+  /* 透明度 */
+  opacity: 1;
+  /* 文字居中 */
+  text-align: center;
+  /* 在弹性盒子内，一行的弹性盒子，应该为 行内弹性盒子 */
+  display: inline-flex;
+  /* 垂直水平居中 */
+  justify-content: center;
+  align-items: center;
+  /* 不换行 */
+  white-space: nowrap;
+  position: relative;
+}
+/* 标签组内的标签说明标签，样式单独设置 */
+.mat-tab-group .mat-tab-label{
+  /* 高度自适应 */
+  height: auto;
+  /* 最宽为 10rem */
+  max-width: 10rem;
+  /* 不允许用户选择 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  /* ---- */
+  /* 高宽设置，要比单独使用的标签说明标签要矮一点 */
+  height: 1.3333334rem;
+  width: 4.0833334rem;
+  /* 内边距取消 */
+  padding: 0;
+  min-height: unset;
+  min-width: unset;
+
+  /* --- */
+  /* 边框为0 */
+  border: 0;
+
+  /* --- */
+  /* 背景色设置 */
+  background: var(--set-color-green-5);
+  /* 边框颜色透明 */
+  border-color: transparent;
+  /* 光标设置为指针 */
+  cursor: pointer;
+  /* 过渡效果设置为边框 */
+  transition: border 245ms ease-in-out;
+  /* 字体颜色设置灰色 */
+  color: var(--set-color-gray-50);
+}
+/* 第二组标签是图片标签，设置宽度要小一点 */
+.mat-tab-group.mat-segmented-2-tab-group .mat-tab-label{
+  width: 2.7083334rem;
+}
+
+/* 标签的底边框，用伪类 after 来实习 */
+.mat-tab-label::after{
+  /* 角度设置为0 */
+  border-radius: 0;
+  content: "";
+  height: 2px;
+  /* 绝对定位，并设置向左对齐 */
+  position: absolute;
+  left: 0;
+  /* 距离底部 -2px，会隐藏起来，需要的时候在显示出来 */
+  bottom: -2px;
+  /* 转换为 x轴 1比1 */
+  transform: scaleX(1);
+  /* 宽度 100% */
+  width: 100%;
+  z-index: 1;
+
+  /* ---- */
+  /* 背景色 */
+  background: var(--set-color-green-60);
+  /* 盒子阴影 */
+  box-shadow: 0 1px 2px var(--set-color-green-30), 0 2px 4px var(--set-color-green-20);
+  /* 过渡效果 */
+  -webkit-transition: -webkit-transform .35s cubic-bezier(.35,0,.25,1);
+  transition: transform .35s cubic-bezier(.35,0,.25,1),-webkit-transform .35s cubic-bezier(.35,0,.25,1);
+}
+/* 标签说明标签的 说明标签的内容 */
+.mat-tab-label .mat-tab-label-content{
+  /* 字体大小，粗细，间距，行高设置 */
+  font-size: .5833334rem;
+  font-weight: 500;
+  letter-spacing: .75px;
+  line-height: .6666667rem;
+
+  /* --- */
+  /* 行内盒子并垂直水平居中 */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  /* --- */
+  z-index: 1;
+  /* 鼠标事件设置 */
+  pointer-events: none;
+}
+/* 说明标签内容区域，鼠标悬浮时  */
+.mat-tab-label:hover .mat-tab-label-content{
+  color: var(--set-color-green-60);
+}
+/* 被激活时 */
+.mat-tab-label.mat-tab-label-active{
+  /* background: var(--set-color-white); */
+  border-color: transparent;
+  color: var(--set-color-green-60);
+  cursor: default;
+  -webkit-transition: border 245ms ease-out;
+  transition: border 245ms ease-out;
+}
+/* 说明标签内的内容是 icon时 */
+.mat-tab-label-content .set-icon{
+  fill: currentColor;
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  margin: 0;
+  vertical-align: middle;
+}
+/* 说明标签的内容的icon svg 设置 */
+.mat-tab-label-content .set-icon > svg{
+  display: block;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+/* 墨水bar 设置 */
+.mat-ink-bar{
+  /* 绝对定位 */
+  position: absolute;
+  bottom: 0;
+  /* 通过 js 设置 left 来实现左右滑动的效果，通过 js 设置 高宽实现和 tab 一样高宽的遮罩效果 */
+  /* 默认2像素高 */
+  height: 2px;
+  /* 过渡效果 */
+  transition: 500ms cubic-bezier(0.35, 0, 0.25, 1);
+}
+/* 标签组，墨水栏 */
+.mat-tab-group .mat-ink-bar{
+  overflow: visible;
+  /* --- */
+  -webkit-transition-duration: .35s;
+  transition-duration: .35s;
+  /* --- */
+  bottom: auto;
+  top: 0;
+  /* --- */
+  border-radius: 4px;
+  /* --- */
+  height: 100%;
+  /* --- */
+  background: var(--set-color-white);
+  box-shadow: 0 1px 2px var(--set-color-green-30), 0 2px 4px var(--set-color-green-20);
+  /* --- */
+  border: 0;
+  border-bottom: none;
+  /* --- */
+  visibility: visible;
+}
+
+
+/* 碎片列表包装器 */
+.mat-chip-list-wrapper{
+  display: flex;
+  flex-direction: row;
+  /* 多行，溢出换行 */
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+}
+
+
+
+
+/* 卡片容器 */
+.mat-card-container{
+  /* 表格布局 */
+  display: grid;
+  /* 3列布局 */
+  grid-template-columns: 1fr 1fr 1fr;
+  /* 行与列 直接间隔 16像素 */
+  gap: 16px;
+}
+/* 卡片 */
+.mat-card{
+  /* 卡片背景色 */
+  background-color: var(--set-color-white);
+  /* 弹性盒子 */
+  display: flex;
+  /* 纵向 */
+  flex-direction: column;
+  /* 内边距 */
+  padding: 16px;
+  /* 4像素的圆角边框 */
+  border-radius: 4px;
+  /* 默认阴影为 0 */
+  box-shadow: 0;
+  /* 相对定位 */
+  position: relative;
+  /* 过渡效果，设置为盒子阴影。鼠标悬浮时，动态阴影展示。 */
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* 卡片悬浮时 */
+.mat-card:hover{
+  /* 阴影效果设置 */
+  box-shadow: 0 2px 4px var(--set-color-indigo-30),
+              0 4px 8px var(--set-color-indigo-20);
+}
+
+/* 最大像素 1024 px时 */
+@media (max-width:1024px){
+  .mat-sidenav-container{
+    margin: 0 auto;
+    margin-top: 12px;
+  }
+  .mat-sidenav{
+    /* visibility: hidden; */
+    margin-top: 32px;
+    transform: translate3d(-100%, 0, 0);
+    background-color: var(--set-color-white);
+    /* --- */
+    /* box-shadow: 2px 0px 4px var(--set-color-blue-30), 4px 0px 8px var(--set-color-blue-20); */
+  }
+  .mat-sidenav-content{
+    /* 左边距去掉 */
+    margin-left: 0;
+    /* 上下自适应，左右0 */
+    margin: auto 0;
+  }
+  
+  /* .mat-sidenav-content > .content-container{ */
+    /* margin-bottom: 112px; */
+  /* } */
+  .main-content__container{
+    /* 水平居中 */
+    margin: 0 auto;
+    flex-grow: 1;
+  }
+  .filters-toggle__wrapper{
+    visibility: visible;
+  }
+}
+
+@media (max-width: 512px) {
+  .set-dense-appbar.set-filled-appbar{
+    flex-wrap: wrap;
+  }
+  .set-appbar-logo,  .set-appbar-actions{
+    margin-bottom: .5rem;
+    margin-left: .5rem;
+  }
+  .set-appbar-logo{
+    margin-top: .5rem;
+  }
+  .set-appbar-nav{
+    order: 3;
+  }
+
+  .filters__fields-wrapper .mat-form-field-type-mat-select{
+    display: block;
+    width: 100%;
+  }
+  .filters__fields-wrapper .mat-form-field-type-mat-select:not(:last-child){
+    margin-bottom: 1rem;
+  }
+  .filters__tabs-wrapper {
+    flex-direction: column;
+  }
+  .filters__tabs-wrapper .mat-tab-group:not(:last-child){
+    margin-bottom: 1rem;
+  }
+  .mat-sidenav{
+    margin-top: 150px;
+  }
+  .mat-sidenav-content .content-container{
+    margin-top: 150px;
+  }
+  
+  .mat-card-container{
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media (max-width: 360px){
+  .filters__tabs-wrapper .mat-tab-group .mat-tab-label{
+    padding: 0;
+    width: 3.08rem;
+  }
+  .filters__tabs-wrapper .mat-tab-group .mat-tab-label .mat-tab-label-content{
+    font-size: 0.483333rem;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 320px){
+  .filters__fields-wrapper .mat-form-field-type-mat-select{
+  }
+  .filters__tabs-wrapper .mat-tab-group .mat-tab-label{
+    padding: 0;
+    width: 3.08rem;
+  }
+  .filters__tabs-wrapper .mat-tab-group .mat-tab-label .mat-tab-label-content{
+    font-size: 0.483333rem;
+    font-weight: 600;
+  }
+}

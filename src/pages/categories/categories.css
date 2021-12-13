@@ -1,0 +1,111 @@
+.mat-icon-button .mat-ripple-element {
+    display: block !important;
+    flex: 1;
+}
+
+/* 树包装器 */
+.mat-sidenav .tree-wrapper {
+    margin: 40px 0;
+    overflow-y: auto;
+    width: 250px;
+}
+
+/* 树空间 */
+.mat-tree {
+    display: block;
+    visibility: visible;
+}
+
+/* 嵌套的节点 */
+.mat-nested-tree-node {
+    border-bottom-width: 0;
+}
+
+/* 树中的，ul，li 设置 */
+.mat-tree ul,
+.mat-tree li {
+    margin-bottom: 0;
+    margin-top: 0;
+    list-style: none;
+}
+
+/* 树的 ul 设置 */
+.mat-tree ul {
+    margin-bottom: 14px;
+    padding-left: 8px;
+}
+
+/* 树的节点设置 */
+.mat-tree-node {
+    display: flex;
+    min-height: 48px;
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+/* 树的树节点 */
+.mat-tree .mat-tree-node {
+    cursor: pointer;
+    min-height: 56px;
+}
+
+/* 树的嵌套节点 树隐藏时 */
+.mat-tree .mat-nested-tree-node .tree-invisible {
+    display: none;
+}
+
+/* 树的图标按钮 */
+.mat-tree .mat-icon-button {
+    border-radius: 50%;
+    display: flex;
+    height: 1.666667rem;
+    max-height: 1.666667rem;
+    width: 1.666667rem;
+    max-width: 1.666667rem;
+    /* --- */
+    background-color: transparent;
+    color: var(--set-color-blue-60);
+    /* --- */
+    margin: 0 4px;
+    overflow: hidden;
+}
+
+/* 树展开时图标按钮设置 */
+.mat-tree .mat-tree-node.tree-node-expanded .mat-icon-button {
+    color: var(--set-color-gray-100);
+}
+
+/* 树的树节点非展开时 图标鼠标悬浮时设置 */
+.mat-tree .mat-tree-node:not(.tree-node-expanded) .mat-icon-button:hover {
+    box-shadow: 0 2px 4px var(--set-color-blue-30), 0 4px 8px var(--set-color-blue-20);
+}
+
+/* 树的节点标题 */
+.mat-tree .tree-node-title {
+    color: var(--set-color-gray-100);
+}
+
+/* 树的节点展开时节点标题 */
+.mat-tree .tree-node-expanded .tree-node-title {
+    font-weight: 700;
+}
+
+/* 树的节点标题帮助文字的文字内容 */
+.mat-tree .tree-node-title .set-text-helper .set-text-helper-content {
+    color: var(--set-color-gray-50);
+    margin: 0;
+    vertical-align: middle;
+    /* --- */
+    font-size: .5833333rem;
+    letter-spacing: .25px;
+    line-height: .8333333rem;
+}
+
+/* icon 图标书写方向为向右时 */
+.set-icon[dir=right] svg,
+.set-icon[shape$="right"] {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}

@@ -1,0 +1,580 @@
+@charset "utf-8";
+
+/* 
+  侧边导航栏的容器
+  配合页面主要内容容器使用，设置 上下边距为 12px，40px 左右边距 auto
+*/
+.mat-sidenav-container {
+    margin: 12px auto 40px;
+}
+
+/* 侧边导航栏的容器 背景 */
+.mat-sidenav-container .mat-drawer-backdrop {
+    background: -webkit-gradient(linear, left bottom, left top, from(rgba(27, 78, 163, .16)), to(rgba(27, 78, 163, .16)));
+    background: linear-gradient(0deg, rgba(27, 78, 163, .16), rgba(27, 78, 163, .16));
+}
+
+/* 背景显示时 */
+.mat-sidenav-container .mat-drawer-backdrop.mat-drawer-showin {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+}
+
+/* 
+    页面导航栏容器包含
+      网站logo
+      网站导航栏
+      网站交互
+  */
+.appbar-container {
+    /* 固定的 */
+    position: fixed;
+    /* z轴为3，确保显示在页面最前面 */
+    z-index: 3;
+    background: var(--set-color-blue-70);
+    box-shadow: 0 1px 2px var(--set-color-blue-30), 0 2px 4px var(--set-color-blue-20);
+    color: var(--set-color-white);
+    /* 垂直居中 */
+    -webkit-box-align: center;
+    align-items: center;
+    /* 上左右为 0，下左右为 4px */
+    border-radius: 0 0 4px 4px;
+    /* flex 盒子 */
+    display: -webkit-box;
+    display: flex;
+    /* 一行显示，不换行 */
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-flow: row nowrap;
+    /* 高度自适应 */
+    height: auto;
+    /* 均匀分布每个元素 */
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    /* 最小高度 */
+    min-height: 2rem;
+    /* 内边距为0 */
+    padding: 0;
+    /* 占满所有宽度 */
+    width: 100%;
+}
+
+/* 森然全色导航栏 网站logo */
+.appbar-logo {
+    /* 外边距设置 */
+    margin-left: .5rem;
+    margin-right: 1rem;
+}
+
+/* 森然全色导航栏 网站logo，网站交互 */
+.appbar-logo, .appbar-actions {
+    /* flex 容器 */
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-flex: 0;
+    /* 增长和缩放为0，元素会紧紧贴住 */
+    /* 增长 0 */
+    flex-grow: 0;
+    /* 缩放 0 */
+    flex-shrink: 0;
+}
+
+/* 网站 logo 容器 */
+.appbar-logo {
+    color: var(--set-color-white);
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+/* 网站 logo 容器 logo */
+.appbar-logo .logo {
+    align-items: center;
+    background-color: var(--set-color-blue-30);
+    border-radius: 6px;
+    color: var(--set-color-blue-70);
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    display: flex;
+    justify-content: center;
+    line-height: 1.5rem;
+    margin-right: 1rem;
+    text-align: center;
+    white-space: nowrap;
+    width: 2rem;
+}
+
+/* 森然色全色导航栏 导航栏容器 */
+.appbar-nav {
+    overflow-x: auto;
+    align-items: center;
+    -webkit-box-align: center;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-flow: row wrap;
+    padding: 0 .5rem;
+}
+
+/* 森然色全色导航栏 导航栏容器 导航栏 */
+.mat-tab-header {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* 森然色全色导航栏 导航栏容器 导航栏 标签链接容器 */
+.mat-tab-link-container {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* 森然色全色导航栏 导航栏容器 导航栏 标签链接容器 标签列表 */
+.mat-tab-list {
+    flex-grow: 1;
+    position: relative;
+    transition: transform 500ms cubic-bezier(0.35, 0, 0.25, 1);
+    transform: translateX(0deg);
+}
+
+/* 森然色全色导航栏 导航栏容器 导航栏 标签链接容器 标签列表 标签链接容器 标签链接列表 */
+.mat-tab-links {
+    border-radius: 4px 4px 0 0;
+    overflow: hidden;
+    display: flex;
+    background: var(--set-color-white);
+    background-color: var(--set-color-blue-70);
+}
+
+/* 标签链接列表 链接:not(没有激活) */
+.mat-tab-links .mat-tab-link:not(.mat-tab-label-active) {
+    background-color: var(--set-color-blue-70);
+    color: var(--set-color-blue-20);
+}
+
+/* 显示完全内容 */
+.mat-tab-nav-bar .mat-tab-header,
+.mat-tab-nav-bar :not(.mat-tab-links) {
+    overflow: visible;
+}
+
+/* 标签链接列表 标签 */
+.mat-tab-link {
+    /* 光标设置为指针 */
+    cursor: pointer;
+    /* 边距盒子 */
+    box-sizing: border-box;
+    /* 文字居中 */
+    text-align: center;
+    /* flex 盒子 */
+    display: inline-flex;
+    /* 水平居中 */
+    justify-content: center;
+    /* 垂直居中 */
+    align-items: center;
+    /* 文字与顶部线条水平 */
+    vertical-align: top;
+    /* 文字下划线 */
+    text-decoration: none;
+    /* 相对定位 */
+    position: relative;
+    /* 外边距右边 */
+    margin-right: .8333334rem;
+    /* 那边距 */
+    padding: 0;
+    /* 最大宽度 */
+    max-width: 10rem;
+    /* 最小宽度 */
+    min-width: 2.6666667rem;
+    /* 用户选择，不选择; */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* 字体 */
+    font-family: var(--set-font-family-base);
+    /* 字体大小 */
+    font-size: .5833334rem;
+    /* 字体粗细 */
+    font-weight: 500;
+    /* 字体间距 */
+    letter-spacing: .1px;
+    /* 行盒高度 */
+    line-height: .9166667rem;
+    /* 最小高度 */
+    min-height: 1.33333rem;
+    /* 主动设置高度 */
+    height: 2rem;
+    /* 过度效果 */
+    transition: .21s ease-in-out;
+}
+
+/* 标签链接元素尾部伪类，用来标出下划线 */
+.mat-tab-link::after {
+    /* 白色背景色，使得被选中后，具有白色背景色 */
+    background-color: var(--set-color-white);
+    /* 森系颜色背景下，设置阴影与标签栏相同 */
+    box-shadow: 0 1px 2px var(--set-color-blue-30),
+        0 2px 4px var(--set-color-blue-20);
+    /* 过度效果，转换效果 */
+    -webkit-transition: -webkit-transform .35 cubic-bezier(.35, 0, .25, 1);
+    transition: transform .35s cubic-bezier(.35, 0, .25, 1), -webkit-transform .35s cubic-bezier(.35, 0, .25, 1);
+    /* 透明度 0，表示完全透明 */
+    opacity: 0;
+    /* 边框半径 0 */
+    border-radius: 0;
+    /* content 设置 */
+    content: "";
+    /* 1 高度 */
+    height: 1px;
+    /* 绝对定位 */
+    position: absolute;
+    /* 占据标签链接所有宽度 */
+    width: 100%;
+    /* 位于最上面 */
+    z-index: 1;
+    /* 距离底部 0 像素 */
+    bottom: 0;
+    /* 转换为0的宽度，等待 transform 设置为 x轴拉满 */
+    transform: scaleX(0);
+}
+
+/* 标签链接在非激活的情况下 hover */
+.mat-tab-link:not(.mat-tab-label-active):hover {
+    /* 颜色为白色 */
+    color: var(--set-color-white);
+}
+
+/* 
+    链接标签激活
+    链接激活后，添加的样式
+   */
+.mat-tab-link.mat-tab-label-active {
+    /* 背景色设置 */
+    background-color: var(--set-color-blue-70);
+    /* 颜色设置 */
+    color: var(--set-color-white);
+    /* 边框颜色设置 */
+    border-color: transparent;
+    /* 光标设置为默认 */
+    cursor: default;
+    /* 过度效果 border */
+    transition: border 175ms ease-in;
+    /* 不透明，让字体高亮出来 */
+    opacity: 1;
+}
+
+/* 被激活后的链接 */
+.mat-tab-link.mat-tab-label-active::after {
+    /* 透明度 1，不透明 */
+    opacity: 1;
+    /* 转换为 1比1的比例 */
+    transform: scaleX(1);
+}
+
+/* 统一向右添加外边距 */
+.appbar-actions> :not(.mat-menu) {
+    margin-right: .5rem;
+}
+
+/* 导航栏搜索容器 */
+.appbar-search {
+    /* 总宽度 8rem */
+    width: 8rem;
+    /* 行内块 */
+    display: inline-block;
+    /* 相对定位 */
+    position: relative;
+    /* 文字方向，往左 */
+    text-align: left;
+}
+
+/* 表单字段包装器 */
+.mat-form-field-wrapper {
+    text-align: left;
+}
+
+/* 表单字段弹性盒子设置 */
+.mat-form-field-flex {
+    /* 行弹性盒子 */
+    display: inline-flex;
+    /* 垂直堆起以盒子基础线 */
+    align-items: baseline;
+    /* 边框盒子 */
+    box-sizing: border-box;
+    /* 宽度拉满 */
+    width: 100%;
+}
+
+/* 搜索栏下的 表单字段弹性盒子设置 */
+.appbar-search .mat-form-field-flex {
+    /* 背景色 */
+    background-color: var(--set-color-gray-5);
+    /* 边框颜色 */
+    border-color: transparent;
+    /* 边框阴影取消 */
+    box-shadow: none;
+    /* 无边框 */
+    border: 0;
+    /* 边框角度 1rem */
+    border-radius: 1rem;
+    /* 左右内边距为 0.5rem */
+    padding: 0 .5rem;
+    /* 过度效果，背景色 */
+    transition: background-color .35s cubic-bezier(.35, 0, .25, 1);
+}
+
+/* 表单字段弹性盒子，激活时背景色，边框色设置 */
+.mat-focused.mat-form-field-flex {
+    /* 背景色 */
+    background-color: var(--set-color-blue-10);
+    /* 边框色 */
+    border-color: var(--set-color-blue-60);
+}
+
+/* 表单字段 前缀设置，icon */
+.mat-form-field-prefix {
+    /* 字体颜色 */
+    color: var(--set-color-gray-50);
+    /* 鼠标指针效果 */
+    cursor: pointer;
+    /* 字体颜色过度效果 */
+    transition: color .2s cubic-bezier(0.4, 0, .2, 1) 0ms;
+    /* 外边距 */
+    margin-right: .1666667rem;
+    /* 不换行 */
+    white-space: nowrap;
+    /* flex 设置为 none */
+    flex: none;
+    /* 相对定位 */
+    position: relative;
+    /* 距离顶部 0px */
+    top: 0;
+}
+
+/* 前缀悬浮时，激活时，icon 颜色变深 */
+.mat-focused .mat-form-field-prefix,
+.mat-form-field-prefix:hover {
+    color: var(--set-color-blue-60);
+}
+
+/* icon 设置 */
+.set-icon {
+    /* 宽高设置 */
+    width: 1rem;
+    height: 1rem;
+    /* 行块 */
+    display: inline-block;
+    /* 填充，当前颜色 */
+    fill: currentColor;
+    margin: 0;
+    /* 垂直堆起，中间 */
+    vertical-align: middle;
+}
+
+/* 输入框容器 */
+.mat-form-field-infix {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    /* 宽度 */
+    width: 180px;
+    /* 内边距 */
+    padding: .1666667rem 0;
+}
+
+/* 输入框 */
+.mat-input-element {
+    /* 字体颜色 */
+    color: var(--set-color-gray-100);
+    /* 字体大小 */
+    font-size: var(--set-base-font-size);
+    letter-spacing: .44px;
+    /* 行高 */
+    line-height: 1rem;
+    /* 背景透明 */
+    background: transparent;
+    /* 边框去除 */
+    border: none;
+    /* 外部线去除 */
+    outline: none;
+    padding: 0;
+    margin: 0;
+    /* 宽度设置 */
+    width: 100%;
+    max-width: 100%;
+    text-align: inherit;
+    caret-color: currentColor;
+}
+
+/* 输入框占位符 */
+.mat-input-element::placeholder {
+    /* 颜色透明，方便对应的标签展示信息来设置 */
+    color: transparent;
+    /* 取消过度效果 */
+    transition: none;
+}
+
+/* 字段展示信息标签包装器 */
+.mat-form-field-label-wrapper {
+    /* 绝对定位 */
+    position: absolute;
+    /* 距离左边0 */
+    left: 0;
+    /* 内容盒子 */
+    box-sizing: content-box;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* 字段展示信息标签包装器，在获取焦点时 */
+.appbar-search .mat-focused .mat-form-field-label-wrapper {
+    /* 隐藏 */
+    display: none;
+}
+
+/* 字段展示信息 */
+.mat-form-field-label {
+    /* 绝对定位 */
+    position: absolute;
+    /* 距离左边为0 */
+    left: 0;
+    font: inherit;
+    pointer-events: none;
+    width: 100%;
+    /* 不换行并设置溢出效果 */
+    white-space: nowrap;
+    /* 溢出显示为 ... */
+    text-overflow: ellipsis;
+    /* 溢出隐藏 */
+    overflow: hidden;
+    transform-origin: 0 0;
+    /* 过度效果，转换效果，字体颜色，标签宽度 */
+    transition: transform 400ms cubic-bezier(0.25, 0.8, 0.25, 1),
+        color 400ms cubic-bezier(0.25, 0.8, 0.25, 1),
+        width 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* 搜索栏下的，字段展示信息 */
+.appbar-search .mat-form-field-label {
+    /* 块级显示 */
+    display: block;
+    /* 转换效果 */
+    transform: perspective(100px);
+    /* 字体设置 */
+    font-size: var(--set-base-font-size);
+    letter-spacing: .44px;
+    line-height: 1rem;
+    /* 字体颜色 */
+    color: var(--set-color-gray-50);
+}
+
+/* 图标按钮 */
+.mat-icon-button {
+    /* 确保不会因为内边距等溢出当前元素 */
+    box-sizing: border-box;
+    /* 当前元素内的其他元素以该元素进行绝对定位 */
+    position: relative;
+    /* 用户选择取消 */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* 光标设置为指针 */
+    cursor: pointer;
+    /* 按钮外线 */
+    outline: none;
+    /* 边框取消 */
+    border: none;
+    /* 空白符不换行 */
+    white-space: nowrap;
+    /* 下划线取消 */
+    text-decoration: none;
+    /* 居中 */
+    text-align: center;
+    /* 内外边距清除 */
+    padding: 0;
+    margin: 0;
+    /* 溢出显示 */
+    overflow: visible;
+    /* 高宽设置 */
+    height: 1.3333334rem;
+    width: 1.3333334rem;
+    /* 最大高宽设置 */
+    max-height: 1.666667rem;
+    max-width: 1.666667rem;
+    /* 缩放比0，展示完全 */
+    flex-shrink: 0;
+    /* 40 行高 */
+    line-height: 40px;
+    /* 弹性盒子 */
+    display: flex;
+    /* 过度效果设置 */
+    transition: background-color .25s cubic-bezier(.4, 0, .2, 1) 0ms,
+        box-shadow .25s cubic-bezier(.4, 0, .2, 1) 0ms,
+        border .25s cubic-bezier(.4, 0, .2, 1) 0ms;
+    /* 背景色 */
+    background-color: var(--set-color-blue-80);
+    /* 角度设置圆角 */
+    border-radius: 50%;
+    /* 白色字体 */
+    color: var(--set-color-white);
+}
+
+/* 按钮的图标包装器 */
+.mat-button-wrapper {
+    width: 1rem;
+    height: 1rem;
+    /* 不设置行高，通过 margin 自适应居中 */
+    line-height: 0;
+    /* 自动适应外边距，从而居中 */
+    margin: auto;
+}
+
+/* 提示字袋，提示信息 */
+.mat-bage-content {
+    /* 绝对定位 */
+    position: absolute;
+    /* 位于最上边的右侧 */
+    top: 0;
+    right: 0;
+    /* 用弹性盒子包裹，并使其水平垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 设置宽高 */
+    width: .833333rem;
+    height: .833333rem;
+    /* 醒目的红色提示字 */
+    background-color: var(--set-color-red-60);
+    /* 圆角 */
+    border-radius: 50%;
+    /* 粗体 */
+    font-weight: 600;
+    /* 字体大小，使得更粗一些 */
+    font-size: .583333rem;
+    /* 行高设置，使得字体居中，双重保险 */
+    line-height: .833333rem;
+}
+
+/* 森然全色导航栏 网站交互 网站头像 */
+.appbar-avatar {
+    border-radius: 50%;
+    cursor: pointer;
+    height: 1.3333334rem;
+    width: 1.3333334rem;
+}
+
+/* 森然全色导航栏 网站交互 网站头像默认头像 */
+.appbar-avatar.appbar-avatar-default {
+    background-image: url('./../../assets/image/avatar.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}

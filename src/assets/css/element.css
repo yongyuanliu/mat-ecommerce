@@ -1,0 +1,165 @@
+@charset "utf-8";
+
+@import url("variable.css");
+
+/* 
+  描述元素的样式文件
+  body,html,p,h1-h6
+ */
+body,
+html {
+    /* 基础性 margin，padding 设置 */
+    margin: 0;
+    padding: 0;
+    /* 默认字体 */
+    font-family: var(--set-font-family-base);
+}
+
+html {
+    /* 根字体颜色 */
+    color: var(--set-base-color);
+    /* 根字体大小 */
+    font-size: var(--set-baseline-rem);
+}
+
+body {
+    /* body 字体颜色 */
+    color: rgba(var(--set-base-color), .87);
+    /* body 字体大小 */
+    font-size: var(--set-base-font-size);
+    /* body 字体粗细 */
+    font-weight: 400;
+    /* body 字体间隔 */
+    letter-spacing: .44px;
+    /* body 行盒高度 */
+    line-height: 1rem;
+}
+
+body p {
+    /* 所有 p 标签默认属性 */
+    /* p 字体 */
+    color: var(--set-p-color);
+    /* p 字体大小 */
+    font-size: var(--set-p-font-size);
+    /* p 字体粗细 */
+    font-weight: var(--set-p-font-weight);
+    /* p 字体间距 */
+    letter-spacing: var(--set-p-letter-spacing);
+    /* p 行盒高度 */
+    line-height: var(--set-p-line-height);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /* h1 字体颜色 */
+    color: var(--set-h1-color);
+    /* h1 字体 */
+    font-family: var(--set-h1-font-family);
+    /* h1 字体大小 */
+    font-size: var(--set-h1-font-size);
+    /* h1 字体粗细 */
+    font-weight: var(--set-h1-font-weight);
+    /* h1 字体间距 */
+    letter-spacing: var(--set-h1-letter-spacing);
+    /* h1 行盒高度 */
+    line-height: var(--set-h1-line-height);
+    /* webkit 兼容性 */
+    -webkit-margin-after: 1rem;
+    -webkit-margin-before: 0;
+    /* 逻辑块结束边距  */
+    margin-block-end: 1rem;
+    /* 逻辑块开始边距 */
+    margin-block-start: 0;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /* h2 字体颜色 */
+    color: var(--set-h2-color);
+    /* h2 字体 */
+    font-family: var(--set-h2-font-family);
+    /* h2 字体大小 */
+    font-size: var(--set-h2-font-size);
+    /* h2 字体粗细 */
+    font-weight: var(--set-h2-font-weight);
+    /* h2 字体间距 */
+    letter-spacing: var(--set-h2-letter-spacing);
+    /* h2 行盒高度 */
+    line-height: var(--set-h2-line-height);
+}
+
+h3,
+h4,
+h5,
+h6 {
+    /* h3 字体颜色 */
+    color: var(--set-h3-color);
+    /* h3 字体 */
+    font-family: var(--set-h3-font-family);
+    /* h3 字体大小 */
+    font-size: var(--set-h3-font-size);
+    /* h3 字体粗细 */
+    font-weight: var(--set-h3-font-weight);
+    /* h3 字体间距 */
+    letter-spacing: var(--set-h3-letter-spacing);
+    /* h3 行盒高度 */
+    line-height: var(--set-h3-line-height);
+}
+
+h4,
+h5,
+h6 {
+    /* h4 字体颜色 */
+    color: var(--set-h4-color);
+    /* h4 字体 */
+    font-family: var(--set-h4-font-family);
+    /* h4 字体大小 */
+    font-size: var(--set-h4-font-size);
+    /* h4 字体粗细 */
+    font-weight: var(--set-h4-font-weight);
+    /* h4 字体间距 */
+    letter-spacing: var(--set-h4-letter-spacing);
+    /* h4 行盒高度 */
+    line-height: var(--set-h4-line-height);
+}
+
+h5,
+h6 {
+    /* h5 字体颜色 */
+    color: var(--set-h5-color);
+    /* h5 字体 */
+    font-family: var(--set-h5-font-family);
+    /* h5 字体大小 */
+    font-size: var(--set-h5-font-size);
+    /* h5 字体粗细 */
+    font-weight: var(--set-h5-font-weight);
+    /* h5 字体间距 */
+    letter-spacing: var(--set-h5-letter-spacing);
+    /* h5 行盒高度 */
+    line-height: var(--set-h5-line-height);
+}
+
+h6 {
+    /* h6 字体颜色 */
+    color: var(--set-h6-color);
+    /* h6 字体 */
+    font-family: var(--set-h6-font-family);
+    /* h6 字体大小 */
+    font-size: var(--set-h6-font-size);
+    /* h6 字体粗细 */
+    font-weight: var(--set-h6-font-weight);
+    /* h6 字体间距 */
+    letter-spacing: var(--set-h6-letter-spacing);
+    /* h6 行盒高度 */
+    line-height: var(--set-h6-line-height);
+    /* 逻辑块结束边距 */
+    -webkit-margin-after: .5rem;
+    margin-block-end: .5rem
+}
