@@ -19,6 +19,14 @@ function App() {
                     index: true,
                     element: <Products />
                 },
+                {
+                    path: "/tab/product/*",
+                    element: <Products />
+                },
+                {
+                    path: "/nav/product/*",
+                    element: <Products />
+                },
                 { path: "*", element: <NoMatch /> }
             ]
         }

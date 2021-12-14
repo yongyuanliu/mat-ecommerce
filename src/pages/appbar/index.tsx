@@ -1,6 +1,37 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
+import Ripples from "../../components/ripple";
 
 import "./appbar.css";
+
+let barData = [
+    {
+        id: 0,
+        name: "新品",
+        target: ""
+    },
+    {
+        id: 1,
+        name: "衣服",
+        target: ""
+    },
+    {
+        id: 2,
+        name: "鞋子",
+        target: ""
+    },
+    {
+        id: 3,
+        name: "配饰",
+        target: ""
+    },
+    {
+        id: 4,
+        name: "更多",
+        target: ""
+    }
+];
 
 export default function AppBar() {
     return (
@@ -13,11 +44,21 @@ export default function AppBar() {
                     <div className="mat-tab-link-container">
                         <div className="mat-tab-list">
                             <div className="mat-tab-links">
-                                <a className="mat-tab-link" href="#"><span>新品</span></a>
-                                <a className="mat-tab-link" href="#"><span>衣服</span></a>
-                                <a className="mat-tab-link" href="#"><span>鞋子</span></a>
-                                <a className="mat-tab-link" href="#"><span>配饰</span></a>
-                                <a className="mat-tab-link" href="#"><span>更多</span></a>
+                                {
+                                    barData.map(tabInfo => {
+                                        return (
+                                            <NavLink
+                                                key={tabInfo.id.toString()}
+                                                className={
+                                                    ({ isActive }) => `mat-tab-link ${isActive ? "mat-tab-label-active" : "mat-tab-link"}`
+                                                }
+                                                to={`/tab/product/${tabInfo.id}`}
+                                            >
+                                                <span>{tabInfo.name}</span>
+                                            </NavLink>
+                                        );
+                                    })
+                                }
                             </div>
                         </div>
                     </div>
@@ -44,12 +85,14 @@ export default function AppBar() {
                     </div>
                 </div>
                 <button className="mat-icon-button mat-bage">
-                    <span className="mat-button-wrapper">
-                        <i className="set-icon">
-                            <svg version="1.1" className="has-solid " viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" role="img"><path className="set-i-solid set-i-solid-path-1" fill="none" d="M0 0h24v24H0V0z"></path><path className="set-i-solid set-i-solid-path-2" d="M12 9c.55 0 1-.45 1-1V6h2c.55 0 1-.45 1-1s-.45-1-1-1h-2V2c0-.55-.45-1-1-1s-1 .45-1 1v2H9c-.55 0-1 .45-1 1s.45 1 1 1h2v2c0 .55.45 1 1 1zm-5 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.38-6.13c.27-.48.09-1.09-.39-1.36-.48-.26-1.09-.09-1.35.39L15.55 11H8.53L4.54 2.57c-.16-.35-.52-.57-.9-.57H2c-.55 0-1 .45-1 1s.45 1 1 1h1l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h11c.55 0 1-.45 1-1s-.45-1-1-1H7l1.1-2z"></path><path className="set-i-outline set-i-outline-path-1" fill="none" d="M0 0h24v24H0V0z"></path><path className="set-i-outline set-i-outline-path-2" d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.87 7H8.53L4.27 2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z"></path></svg>
-                        </i>
-                    </span>
-                    <span className="mat-bage-content mat-bage-active">3</span>
+                    <Ripples className="mat-ripple-element">
+                        <span className="mat-button-wrapper">
+                            <i className="set-icon">
+                                <svg version="1.1" className="has-solid " viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" role="img"><path className="set-i-solid set-i-solid-path-1" fill="none" d="M0 0h24v24H0V0z"></path><path className="set-i-solid set-i-solid-path-2" d="M12 9c.55 0 1-.45 1-1V6h2c.55 0 1-.45 1-1s-.45-1-1-1h-2V2c0-.55-.45-1-1-1s-1 .45-1 1v2H9c-.55 0-1 .45-1 1s.45 1 1 1h2v2c0 .55.45 1 1 1zm-5 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.38-6.13c.27-.48.09-1.09-.39-1.36-.48-.26-1.09-.09-1.35.39L15.55 11H8.53L4.54 2.57c-.16-.35-.52-.57-.9-.57H2c-.55 0-1 .45-1 1s.45 1 1 1h1l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h11c.55 0 1-.45 1-1s-.45-1-1-1H7l1.1-2z"></path><path className="set-i-outline set-i-outline-path-1" fill="none" d="M0 0h24v24H0V0z"></path><path className="set-i-outline set-i-outline-path-2" d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.87 7H8.53L4.27 2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z"></path></svg>
+                            </i>
+                        </span>
+                        <span className="mat-bage-content mat-bage-active">3</span>
+                    </Ripples>
                 </button>
                 <div className="appbar-avatar appbar-avatar-default"></div>
             </div>

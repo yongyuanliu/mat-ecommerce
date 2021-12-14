@@ -84,6 +84,8 @@ function devServerConfig() {
         hot: true,
         compress: true
     };
+
+    console.log(config.devServer);
 }
 
 //maybe dev
