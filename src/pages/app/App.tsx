@@ -7,7 +7,7 @@ import "./app.css";
 import NoMatch from "../no-match";
 import AppBar from "../appbar";
 import Categories from "../categories";
-import Products from "../product";
+import ProductPage from "../product";
 
 function App() {
     let routes: RouteObject[] = [
@@ -17,15 +17,15 @@ function App() {
             children: [
                 {
                     index: true,
-                    element: <Products />
+                    element: <ProductPage />
                 },
                 {
                     path: "/tab/product/*",
-                    element: <Products />
+                    element: <ProductPage />
                 },
                 {
                     path: "/nav/product/*",
-                    element: <Products />
+                    element: <ProductPage />
                 },
                 { path: "*", element: <NoMatch /> }
             ]

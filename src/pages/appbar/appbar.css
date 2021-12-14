@@ -574,7 +574,7 @@
 
 /* 森然全色导航栏 网站交互 网站头像默认头像 */
 .appbar-avatar.appbar-avatar-default {
-    background-image: url('./../../assets/image/avatar.jpg');
+    background-image: url('../../assets/images/avatar.jpg');
     background-repeat: no-repeat;
     background-size: contain;
 }

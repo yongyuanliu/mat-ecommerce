@@ -1,0 +1,167 @@
+@charset "utf-8";
+
+.mat-card {
+  background-color: var(--set-color-white);
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: none;
+  position: relative;
+  box-shadow: 0;
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.mat-card:hover {
+  box-shadow: 0 2px 4px var(--set-color-indigo-30), 0 4px 8px var(--set-color-indigo-20);
+}
+
+.card-content {
+  display: flex;
+  flex-flow: column;
+  padding-bottom: 12px;
+  position: relative;
+}
+
+.set-border-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.card-title {
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 100;
+  margin: 0;
+}
+
+.card-image {
+  object-fit: contain;
+}
+
+.card-description {
+  color: #19191d;
+  margin-bottom: 8px;
+}
+
+.card-price {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  margin-bottom: 8px;
+}
+
+.card-addtional .set-text-helper-content {
+  letter-spacing: .25px;
+  color: var(--set-color-gray-50);
+  font: var(--set-font-family-base);
+  margin: 0;
+  font-size: .58rem;
+  line-height: .83rem;
+}
+
+.card-actions {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  margin: auto 0 0;
+  padding: 0;
+  align-items: center;
+}
+
+.set-stars-wrapper {
+  display: flex;
+  flex-flow: row;
+}
+
+.set-icon-container {
+  display: flex;
+  flex-flow: row;
+}
+
+.set-icon-container .ng-star-inserted {
+  fill: currentColor;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  color: var(--set-color-yellow-60);
+}
+
+.set-rating-stars-value {
+  font-size: .5833334rem;
+  font-weight: 500;
+  color: var(--set-color-gray-100);
+  line-height: .91rem;
+  letter-spacing: .1px;
+  margin-left: .5rem;
+}
+
+.mat-stroked-button {
+  border-radius: 4px;
+  font-size: .58rem;
+  letter-spacing: .75px;
+  line-height: .66rem;
+  max-width: 15rem;
+  min-width: 3rem;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  text-transform: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.mat-primary {
+  box-shadow: none;
+  color: var(--set-color-blue-70);
+  background-color: transparent;
+  border: 1px solid var(--set-color-blue-30);
+  transition: opacity, transform .55s cubic-bezier(.4, 0, .2, 1), -webkit-transform .55s cubic-bezier(.4, 0, .2, 1);
+}
+
+button.mat-primary {
+  transition-property: background-color, box-shadow, border;
+}
+
+button.mat-primary:active {
+  background-color: var(--set-color-blue-10);
+}
+
+.mat-stroked-button {
+  height: 32px;
+  margin: 0 0 0 12px;
+  padding: 0 .5rem;
+}
+
+.mat-stroked-button .react-ripple {
+  display: unset !important;
+  overflow: unset !important;
+}
+
+.mat-button-wrapper {
+  color: var(--set-color-blue-70);
+  font-size: .58rem;
+  letter-spacing: .75px;
+  line-height: .66rem;
+}
+
+.mat-stroked-button .favorite {
+  fill: currentColor;
+  display: inline-block;
+  width: .6rem;
+  height: .6rem;
+  vertical-align: middle;
+  margin: 0;
+  margin-right: .6rem;
+}
+
+.mat-stroked-button:hover {
+  background-color: var(--set-color-blue-5);
+}

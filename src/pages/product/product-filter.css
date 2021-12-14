@@ -1,3 +1,36 @@
+.filters-toggle__wrapper {
+    position: fixed;
+    z-index: 1000;
+    bottom: 64px;
+    left: calc(50% - 56px);
+    display: flex;
+    visibility: hidden;
+}
+
+.filters-toggle__wrapper .mat-icon-button {
+    /* max设置 */
+    max-width: unset;
+    max-height: unset;
+    /* --- */
+    width: 2.333334rem;
+    height: 2.333334rem;
+    /* --- */
+    color: var(--set-color-blue-70);
+    /* --- */
+    background-color: var(--set-color-white);
+    box-shadow: 0 2px 4px var(--set-color-blue-30), 0 4px 8px var(--set-color-blue-20);
+    /* --- */
+    overflow: hidden;
+}
+
+.filters-toggle__wrapper .mat-icon-button:hover {
+    box-shadow: 0 4px 4px var(--set-color-blue-30), 0 8px 16px var(--set-color-blue-20);
+}
+
+.filters-toggle__wrapper>*:not(:last-child) {
+    margin-right: 1rem;
+}
+
 /* 表单字段类型-下拉框容器除开最后一个以外都距离外边距 24像素 */
 .filters__additional>.mat-form-field-type-mat-select:not(:last-child) {
     margin-right: 24px;

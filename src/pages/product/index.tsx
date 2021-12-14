@@ -1,117 +1,24 @@
 import React from "react";
+import ProductCard from "../../components/product-card";
+import { listAll } from "../../controller/product";
 
 import { ProductFilter } from "./filter";
+
+import "./product.css";
 
 class ProductList extends React.Component {
     render(): React.ReactNode {
         return (
-            <div className="mat-card-container">
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box black">gradient-black</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box blue-indigo">gradient-blue-indigo</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box green-teal">gradient-green-teal</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box red-pink">gradient-red-pink</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box yellow-orange">yellow-orange</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box light-black">light-gradient-black</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box light-blue-indigo">light-gradient-blue-indigo</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box light-green-teal">light-gradient-green-teal</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box light-red-pink">light-gradient-red-pink</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box light-yellow-orange">light-yellow-orange</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box reverse-black">reverse-gradient-black</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box reverse-blue-indigo">reverse-gradient-blue-indigo</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box reverse-green-teal">reverse-gradient-green-teal</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box reverse-red-pink">reverse-gradient-red-pink</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box reverse-yellow-orange">reverse-yellow-orange</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box light-reverse-black">light-reverse-gradient-black</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box light-reverse-blue-indigo">light-reverse-gradient-blue-indigo</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box light-reverse-green-teal">light-reverse-gradient-green-teal</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box light-reverse-red-pink">light-reverse-gradient-red-pink</div>
-                    </div>
-                </div>
-                <div className="mat-card">
-                    <div className="mat-card-content">
-                        <div className="gradient-box light-reverse-yellow-orange">light-reverse-yellow-orange</div>
-                    </div>
-                </div>
-            </div>
+            listAll().map(product => {
+                return (
+                    <ProductCard key={product.id.toString()} product={product}></ProductCard>
+                );
+            })
         );
     }
 }
 
-export default class Products extends React.Component {
+export default class extends React.Component {
     render(): React.ReactNode {
         return (
             <>
@@ -127,7 +34,9 @@ export default class Products extends React.Component {
                 </div>
                 <div className="main-content__container">
                     <ProductFilter />
-                    <ProductList />
+                    <div className="mat-card-container">
+                        <ProductList />
+                    </div>
                 </div>
             </>
         );

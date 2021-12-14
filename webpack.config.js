@@ -23,6 +23,7 @@ const config = {
         index: "./src/index.tsx",
     },
     output: {
+        clean: true,
         path: resolve(__dirname, "dist"),
         filename: "[name]-bundle.js",
     },
