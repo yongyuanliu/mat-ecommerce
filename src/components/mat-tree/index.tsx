@@ -71,7 +71,10 @@ class TreeNode extends React.PureComponent<TreeNodeProps, TreeNodeState>{
                         }>
                             <Ripples className="mat-ripple-element">
                                 <span className="mat-button-wrapper">
-                                    <i className="set-icon">
+                                    <i
+                                        className="set-icon"
+                                        dir={expanded ? "right" : ""}
+                                    >
                                         <svg version="1.1" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" role="img"><path className="set-i-solid set-i-solid-path-1" fill="none" d="M0 0h24v24H0V0z"></path><path className="set-i-solid set-i-solid-path-2" d="M9.29 6.71c-.39.39-.39 1.02 0 1.41L13.17 12l-3.88 3.88c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41L10.7 6.7c-.38-.38-1.02-.38-1.41.01z"></path><path className="set-i-outline set-i-outline-path-1" fill="none" d="M0 0h24v24H0V0z"></path><path className="set-i-outline set-i-outline-path-2" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"></path></svg>
                                     </i>
                                 </span>
@@ -82,11 +85,11 @@ class TreeNode extends React.PureComponent<TreeNodeProps, TreeNodeState>{
                             {helperElement}
                         </div>
                     </div>
-                </li>
+                </li >
                 <ul className={expanded ? "" : "tree-invisible"}>
                     {children}
                 </ul>
-            </div>
+            </div >
         );
     }
 }
