@@ -4,7 +4,7 @@ import { listAll } from "../../controller/product";
 
 import { ProductFilter } from "./filter";
 
-import "./product.css";
+import "./index.css";
 
 class ProductList extends React.Component {
     render(): React.ReactNode {

@@ -87,7 +87,7 @@ function devServerConfig() {
         compress: true
     };
 
-    console.log(config.devServer);
+    console.log(`dev server config notation: %o`, config.devServer);
 }
 
 //maybe dev

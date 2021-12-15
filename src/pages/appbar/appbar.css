@@ -572,6 +572,10 @@
     width: 1.3333334rem;
 }
 
+.mat-bage .mat-button-wrapper{
+    color: var(--set-color-white);
+}
+
 /* 森然全色导航栏 网站交互 网站头像默认头像 */
 .appbar-avatar.appbar-avatar-default {
     background-image: url('https://s4.ax1x.com/2021/12/15/TSkhDK.jpg');
