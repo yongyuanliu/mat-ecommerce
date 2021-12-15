@@ -1,34 +1,36 @@
 /* 卡片容器 */
-.mat-card-container{
-    /* 表格布局 */
-    display: grid;
-    /* 3列布局 */
-    grid-template-columns: 1fr 1fr 1fr;
-    /* 行与列 直接间隔 16像素 */
-    gap: 16px;
-  }
-  /* 卡片 */
-  .mat-card{
-    /* 卡片背景色 */
-    background-color: var(--set-color-white);
-    /* 弹性盒子 */
-    display: flex;
-    /* 纵向 */
-    flex-direction: column;
-    /* 内边距 */
-    padding: 16px;
-    /* 4像素的圆角边框 */
-    border-radius: 4px;
-    /* 默认阴影为 0 */
-    box-shadow: 0;
-    /* 相对定位 */
-    position: relative;
-    /* 过渡效果，设置为盒子阴影。鼠标悬浮时，动态阴影展示。 */
-    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  /* 卡片悬浮时 */
-  .mat-card:hover{
-    /* 阴影效果设置 */
-    box-shadow: 0 2px 4px var(--set-color-indigo-30),
-                0 4px 8px var(--set-color-indigo-20);
-  }
+.mat-card-container {
+  /* 表格布局 */
+  display: grid;
+  /* 3列布局 */
+  grid-template-columns: 1fr 1fr 1fr;
+  /* 行与列 直接间隔 16像素 */
+  gap: 16px;
+}
+
+/* 卡片 */
+.mat-card {
+  /* 卡片背景色 */
+  background-color: var(--set-color-white);
+  /* 弹性盒子 */
+  display: flex;
+  /* 纵向 */
+  flex-direction: column;
+  /* 内边距 */
+  padding: 16px;
+  /* 4像素的圆角边框 */
+  border-radius: 4px;
+  /* 默认阴影为 0 */
+  box-shadow: 0;
+  /* 相对定位 */
+  position: relative;
+  /* 过渡效果，设置为盒子阴影。鼠标悬浮时，动态阴影展示。 */
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 卡片悬浮时 */
+.mat-card:hover {
+  /* 阴影效果设置 */
+  box-shadow: 0 2px 4px var(--set-color-indigo-30),
+    0 4px 8px var(--set-color-indigo-20);
+}

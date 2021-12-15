@@ -26,6 +26,7 @@ const config = {
         clean: true,
         path: resolve(__dirname, "dist"),
         filename: "[name]-bundle.js",
+        publicPath: "/",
     },
     resolve: {
         extensions: [".js", ".jsx", ".ts", ".tsx"],

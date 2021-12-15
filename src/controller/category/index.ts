@@ -18,7 +18,7 @@ let categories: Category[] = [
                 children: [
                     {
                         id: 2,
-                        name: "Cell Phones &and; Smartphones",
+                        name: "Cell Phones & Smartphones",
                         helper: "",
                         children: [
                             {

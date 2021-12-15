@@ -41,6 +41,7 @@
 
 .card-image {
   object-fit: contain;
+  pointer-events: none;
 }
 
 .card-description {
