@@ -1,33 +1,73 @@
 import React from "react";
 
-export default function Cdk() {
+interface CdkProps {
+    onClick?: (ev: React.MouseEvent<HTMLDivElement>) => any;
+    className?: string;
+    top?: number;
+    left?: number;
+    transformX?: number;
+    transformY?: number;
+    hidden?: boolean;
+}
+
+type CdkState = Readonly<{
+    hidden: boolean;
+}>;
+
+class Cdk extends React.PureComponent<CdkProps, CdkState>{
+    constructor(props: CdkProps) {
+        super(props);
+    }
+
+    onClick = (ev: React.MouseEvent<HTMLDivElement>) => {
+        let { onClick } = this.props;
+
+        if (onClick) {
+            onClick(ev);
+        }
+    };
+
+    render(): React.ReactNode {
+        const { children, className, top, left, transformX, transformY, hidden } = this.props;
+        return (
+            <div
+                className="cdk-overlay-container"
+                onClick={this.onClick}
+                style={{
+                    display: `${hidden ? "none" : "block"}`
+                }}
+            >
+                <div className="cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing"></div>
+                <div className="cdk-overlay-connected-position-bounding-box">
+                    <div
+                        className={`cdk-overlay-panel ${className ? className : ""}`}
+                        style={
+                            {
+                                top,
+                                left,
+                                transform: `translateX(${transformX}px) translateY(${transformY}px)`
+                            }
+                        }
+                    >
+                        {children}
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
+
+let name = function () {
     return (
         <div className="cdk-overlay-container">
             <div className="cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing"></div>
             <div className="cdk-overlay-connected-position-bounding-box">
                 <div className="cdk-overlay-panel">
-                    <div className="mat-select-panel-wrap">
-                        <div className="mat-select-panel">
-                            <div id="mat-option-12" className="mat-option" role="option" defaultValue="option1" tabIndex={0} aria-disabled="false">
-                                <span className="mat-option-text">Useless first</span>
-                                <div className="mat-ripple mat-option-ripple"></div>
-                            </div>
-                            <div id="mat-option-13" className="mat-option" role="option" defaultValue="option1" tabIndex={0} aria-disabled="false">
-                                <span className="mat-option-text">Necessary second</span>
-                                <div className="mat-ripple mat-option-ripple"></div>
-                            </div>
-                            <div id="mat-option-14" className="mat-option" role="option" defaultValue="option1" tabIndex={0} aria-disabled="false">
-                                <span className="mat-option-text">Useful third</span>
-                                <div className="mat-ripple mat-option-ripple"></div>
-                            </div>
-                            <div id="mat-option-15" className="mat-option" role="option" defaultValue="option1" tabIndex={0} aria-disabled="false">
-                                <span className="mat-option-text">Something fourth</span>
-                                <div className="mat-ripple mat-option-ripple"></div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
     );
 }
+
+export { Cdk };

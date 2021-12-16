@@ -5,13 +5,35 @@ interface FormSelectProps {
     placeHolder?: string;
     sortHelper?: string;
     className?: string;
+    onClick?: (ev: React.MouseEvent<HTMLDivElement>) => any;
 }
 
 class FormSelect extends React.PureComponent<FormSelectProps> {
+
+    onMouseDown = (ev: React.MouseEvent<HTMLDivElement>) => {
+        ev.currentTarget.classList.add("mat-focused");
+    };
+
+    onMouseUp = (ev: React.MouseEvent<HTMLDivElement>) => {
+        ev.currentTarget.classList.remove("mat-focused");
+    }
+
+    onClick = (ev: React.MouseEvent<HTMLDivElement>) => {
+        let { onClick } = this.props;
+        if (onClick) {
+            onClick(ev);
+        }
+    }
+
     render(): React.ReactNode {
         const { htmlId, placeHolder, sortHelper, className } = this.props;
         return (
-            <div className={`mat-form-field ${sortHelper ? "mat-form-field-has-label" : ""} mat-form-field-type-mat-select ${className ? className : ""}`}>
+            <div
+                className={`mat-form-field ${sortHelper ? "mat-form-field-has-label" : ""} mat-form-field-type-mat-select ${className ? className : ""}`}
+                onMouseDown={this.onMouseDown}
+                onMouseUp={this.onMouseUp}
+                onClick={this.onClick}
+            >
                 <div className="mat-form-field-wrapper">
                     <div className="mat-form-field-flex">
                         <div className="mat-form-field-outline">

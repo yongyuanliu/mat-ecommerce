@@ -5,6 +5,7 @@ import TabGrop from "../../components/tab/tab-group";
 import FormSelect from "../../components/select";
 
 import "./filter.css";
+import { Cdk } from "../../components/cdk";
 
 function FiltersTabWrapper() {
     const textLabel = [
@@ -62,15 +63,97 @@ function FiltersAdditional() {
     );
 }
 
-class ProductFilter extends React.Component {
+interface ProductFilterProps {
+
+}
+
+type ProductFilterState = Readonly<{
+    selectPanel: {
+        hidden: boolean;
+        top: number;
+        left: number;
+        transformX: number;
+        transformY: number;
+    }
+}>;
+
+class ProductFilter extends React.Component<ProductFilterProps, ProductFilterState> {
+
+    constructor(props: ProductFilterProps) {
+        super(props);
+
+        this.state = {
+            selectPanel: {
+                hidden: true,
+                top: 0,
+                left: 0,
+                transformX: 0,
+                transformY: 0
+            }
+        }
+    }
+
+    selectOnClick = (ev: React.MouseEvent<HTMLDivElement>) => {
+        const { top, left } = ev.currentTarget.getBoundingClientRect();
+        let { selectPanel } = this.state;
+        selectPanel.top = top;
+        selectPanel.left = left;
+        selectPanel.hidden = false;
+        this.setState({ selectPanel });
+    }
+
+    optionOnClick = () => {
+        let { selectPanel } = this.state;
+        selectPanel.hidden = true;
+        this.setState({ selectPanel });
+    }
+
     render(): React.ReactNode {
+        let { selectPanel } = this.state;
         return (
             <div className="filters__wrapper">
                 <div className="filters__main">
                     <div className="filters__fields-wrapper">
-                        <FormSelect htmlId="mat-select-01" placeHolder="Useless first" sortHelper="Sort by"></FormSelect>
-                        <FormSelect htmlId="mat-select-02" placeHolder="Condition" className="mat-form-field-should-float"></FormSelect>
-                        <FormSelect htmlId="mat-select-03" placeHolder="Delivery options"></FormSelect>
+                        <FormSelect
+                            htmlId="mat-select-01" placeHolder="Useless first" sortHelper="Sort by"
+                            onClick={this.selectOnClick}
+                        ></FormSelect>
+                        <FormSelect
+                            htmlId="mat-select-02" placeHolder="Condition" className="mat-form-field-should-float"
+                            onClick={this.selectOnClick}
+                        ></FormSelect>
+                        <FormSelect
+                            htmlId="mat-select-03" placeHolder="Delivery options"
+                            onClick={this.selectOnClick}
+                        ></FormSelect>
+                        <Cdk
+                            hidden={selectPanel.hidden}
+                            top={selectPanel.top}
+                            left={selectPanel.left}
+                            transformX={selectPanel.transformX}
+                            transformY={selectPanel.transformY}
+                        >
+                            <div className="mat-select-panel-wrap" onClick={this.optionOnClick}>
+                                <div className="mat-select-panel">
+                                    <div id="mat-option-12" className="mat-option" role="option" defaultValue="option1" tabIndex={0} aria-disabled="false">
+                                        <span className="mat-option-text">Useless first</span>
+                                        <div className="mat-ripple mat-option-ripple"></div>
+                                    </div>
+                                    <div id="mat-option-13" className="mat-option" role="option" defaultValue="option1" tabIndex={0} aria-disabled="false">
+                                        <span className="mat-option-text">Necessary second</span>
+                                        <div className="mat-ripple mat-option-ripple"></div>
+                                    </div>
+                                    <div id="mat-option-14" className="mat-option" role="option" defaultValue="option1" tabIndex={0} aria-disabled="false">
+                                        <span className="mat-option-text">Useful third</span>
+                                        <div className="mat-ripple mat-option-ripple"></div>
+                                    </div>
+                                    <div id="mat-option-15" className="mat-option" role="option" defaultValue="option1" tabIndex={0} aria-disabled="false">
+                                        <span className="mat-option-text">Something fourth</span>
+                                        <div className="mat-ripple mat-option-ripple"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Cdk>
                     </div>
                     <FiltersTabWrapper />
                 </div>
