@@ -91,60 +91,60 @@ let PRODUCTS: Product[] = [
         "helper": "1258 bids, 359 watchers $5.95 for shipping",
         "rating": "4.56"
     },
-    {
-        "id": 10,
-        "title": "Cute Cat Test 1",
-        "price": "128.99",
-        "image": "https://s4.ax1x.com/2021/12/15/TSEkJH.jpg",
-        "description": "Timesaving kitten to save months on development. Playful, cute, cheap!",
-        "helper": "Eligible for nothing :(",
-        "rating": "0.03"
-    },
-    {
-        "id": 11,
-        "title": "Cute Cat Test 2",
-        "price": "128.99",
-        "image": "https://s4.ax1x.com/2021/12/15/TSEkJH.jpg",
-        "description": "Timesaving kitten to save months on development. Playful, cute, cheap!",
-        "helper": "Eligible for nothing :(",
-        "rating": "0.51"
-    },
-    {
-        "id": 12,
-        "title": "Cute Cat Test 3",
-        "price": "128.99",
-        "image": "https://s4.ax1x.com/2021/12/15/TSEkJH.jpg",
-        "description": "Timesaving kitten to save months on development. Playful, cute, cheap!",
-        "helper": "Eligible for nothing :(",
-        "rating": "5.00"
-    },
-    {
-        "id": 13,
-        "title": "Cute Cat Test 4",
-        "price": "128.99",
-        "image": "https://s4.ax1x.com/2021/12/15/TSEkJH.jpg",
-        "description": "Timesaving kitten to save months on development. Playful, cute, cheap!",
-        "helper": "Eligible for nothing :(",
-        "rating": "3.21"
-    },
-    {
-        "id": 14,
-        "title": "Cute Cat Test 5",
-        "price": "128.99",
-        "image": "https://s4.ax1x.com/2021/12/15/TSEkJH.jpg",
-        "description": "Timesaving kitten to save months on development. Playful, cute, cheap!",
-        "helper": "Eligible for nothing :(",
-        "rating": "1.33"
-    },
-    {
-        "id": 15,
-        "title": "Cute Cat Test 6",
-        "price": "128.99",
-        "image": "https://s4.ax1x.com/2021/12/15/TSEkJH.jpg",
-        "description": "Timesaving kitten to save months on development. Playful, cute, cheap!",
-        "helper": "Eligible for nothing :(",
-        "rating": "2.56"
-    }
+    // {
+    //     "id": 10,
+    //     "title": "Cute Cat Test 1",
+    //     "price": "128.99",
+    //     "image": "https://s4.ax1x.com/2021/12/15/TSEkJH.jpg",
+    //     "description": "Timesaving kitten to save months on development. Playful, cute, cheap!",
+    //     "helper": "Eligible for nothing :(",
+    //     "rating": "0.03"
+    // },
+    // {
+    //     "id": 11,
+    //     "title": "Cute Cat Test 2",
+    //     "price": "128.99",
+    //     "image": "https://s4.ax1x.com/2021/12/15/TSEkJH.jpg",
+    //     "description": "Timesaving kitten to save months on development. Playful, cute, cheap!",
+    //     "helper": "Eligible for nothing :(",
+    //     "rating": "0.51"
+    // },
+    // {
+    //     "id": 12,
+    //     "title": "Cute Cat Test 3",
+    //     "price": "128.99",
+    //     "image": "https://s4.ax1x.com/2021/12/15/TSEkJH.jpg",
+    //     "description": "Timesaving kitten to save months on development. Playful, cute, cheap!",
+    //     "helper": "Eligible for nothing :(",
+    //     "rating": "5.00"
+    // },
+    // {
+    //     "id": 13,
+    //     "title": "Cute Cat Test 4",
+    //     "price": "128.99",
+    //     "image": "https://s4.ax1x.com/2021/12/15/TSEkJH.jpg",
+    //     "description": "Timesaving kitten to save months on development. Playful, cute, cheap!",
+    //     "helper": "Eligible for nothing :(",
+    //     "rating": "3.21"
+    // },
+    // {
+    //     "id": 14,
+    //     "title": "Cute Cat Test 5",
+    //     "price": "128.99",
+    //     "image": "https://s4.ax1x.com/2021/12/15/TSEkJH.jpg",
+    //     "description": "Timesaving kitten to save months on development. Playful, cute, cheap!",
+    //     "helper": "Eligible for nothing :(",
+    //     "rating": "1.33"
+    // },
+    // {
+    //     "id": 15,
+    //     "title": "Cute Cat Test 6",
+    //     "price": "128.99",
+    //     "image": "https://s4.ax1x.com/2021/12/15/TSEkJH.jpg",
+    //     "description": "Timesaving kitten to save months on development. Playful, cute, cheap!",
+    //     "helper": "Eligible for nothing :(",
+    //     "rating": "2.56"
+    // }
 ];
 
 function listAll() {

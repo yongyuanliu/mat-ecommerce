@@ -69,7 +69,8 @@
 }
 
 /* 森然全色导航栏 网站logo，网站交互 */
-.appbar-logo, .appbar-actions {
+.appbar-logo,
+.appbar-actions {
     /* flex 容器 */
     display: -webkit-box;
     display: flex;
@@ -572,7 +573,7 @@
     width: 1.3333334rem;
 }
 
-.mat-bage .mat-button-wrapper{
+.mat-bage .mat-button-wrapper {
     color: var(--set-color-white);
 }
 
@@ -581,4 +582,24 @@
     background-image: url('https://s4.ax1x.com/2021/12/15/TSkhDK.jpg');
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+@media (max-width: 512px) {
+    .appbar-container{
+        flex-wrap: wrap;
+    }
+
+    .appbar-logo,
+    .appbar-actions {
+        margin-bottom: .5rem;
+        margin-left: .5rem;
+    }
+
+    .appbar-logo {
+        margin-top: .5rem;
+    }
+
+    .appbar-nav {
+        order: 3;
+    }
 }

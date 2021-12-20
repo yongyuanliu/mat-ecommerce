@@ -40,7 +40,7 @@ function FiltersTabWrapper() {
 }
 
 function FiltersAdditional() {
-    const chips = ["全球购", "50元内", "小猫", "塑料塞", "pucker鞋", "打字机"];
+    const chips = ["worldwide shipping", "under $50", "kitten", "plastic plugs", "pucker shoes", "vintage typewriter"];
     return (
         <div className="filters__additional mat-chip-list">
             <div className="mat-chip-list-wrapper">

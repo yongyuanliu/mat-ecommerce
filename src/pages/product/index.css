@@ -34,3 +34,9 @@
   box-shadow: 0 2px 4px var(--set-color-indigo-30),
     0 4px 8px var(--set-color-indigo-20);
 }
+
+@media screen and (max-width: 512px) {
+  .mat-card-container {
+    grid-template-columns: 1fr;
+  }
+}

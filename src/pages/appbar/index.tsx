@@ -8,27 +8,27 @@ import "./appbar.css";
 let barData = [
     {
         id: 0,
-        name: "新品",
+        name: "New in",
         target: ""
     },
     {
         id: 1,
-        name: "衣服",
+        name: "Clothing",
         target: ""
     },
     {
         id: 2,
-        name: "鞋子",
+        name: "Shoes",
         target: ""
     },
     {
         id: 3,
-        name: "配饰",
+        name: "Accessories",
         target: ""
     },
     {
         id: 4,
-        name: "更多",
+        name: "More",
         target: ""
     }
 ];
@@ -77,7 +77,7 @@ export default function AppBar() {
                                 <input id="mat-form-field-infix-search" className="mat-input-element" aria-invalid="false" aria-required="false" placeholder="搜索" type="search" autoComplete="" />
                                 <span className="mat-form-field-label-wrapper">
                                     <label className="mat-form-field-label" htmlFor="mat-form-field-infix-search" aria-owns="mat-form-field-infix-search">
-                                        <span>搜索</span>
+                                        <span>Search</span>
                                     </label>
                                 </span>
                             </div>

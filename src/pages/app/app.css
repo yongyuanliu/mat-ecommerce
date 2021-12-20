@@ -545,20 +545,6 @@
 }
 
 @media (max-width: 512px) {
-  .set-dense-appbar.set-filled-appbar{
-    flex-wrap: wrap;
-  }
-  .set-appbar-logo,  .set-appbar-actions{
-    margin-bottom: .5rem;
-    margin-left: .5rem;
-  }
-  .set-appbar-logo{
-    margin-top: .5rem;
-  }
-  .set-appbar-nav{
-    order: 3;
-  }
-
   .filters__fields-wrapper .mat-form-field-type-mat-select{
     display: block;
     width: 100%;
@@ -578,11 +564,6 @@
   .mat-sidenav-content .content-container{
     margin-top: 150px;
   }
-  
-  .mat-card-container{
-    grid-template-columns: 1fr 1fr;
-  }
-
 }
 
 @media (max-width: 360px){
@@ -597,8 +578,6 @@
 }
 
 @media (max-width: 320px){
-  .filters__fields-wrapper .mat-form-field-type-mat-select{
-  }
   .filters__tabs-wrapper .mat-tab-group .mat-tab-label{
     padding: 0;
     width: 3.08rem;
